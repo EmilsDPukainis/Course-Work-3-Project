@@ -1,0 +1,96 @@
+﻿<Window x:Class="CourseWork3.ServerSideStatistics"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseWork3" xmlns:models="clr-namespace:CourseWork3.Models"
+        mc:Ignorable="d"
+        Title="ServerSideStatistics" Height="360" Width="623.5"
+        d:DataContext="{d:DesignInstance Type=models:LoadUserStatistics}">
+
+    <Grid>
+        <DataGrid x:Name="StatisticGrid2" Height="255" Margin="172,43,68,0" VerticalAlignment="Top" CanUserAddRows="False" AutoGenerateColumns="False" ItemsSource="{Binding UserData}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Date" x:Name="Date" Binding="{Binding Path=Date}" CanUserResize="False" IsReadOnly="True" CanUserReorder="False" CanUserSort="False" Width="90">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Entered" Binding="{Binding Path= TimeEntered}" x:Name="TimeEntered" CanUserResize="False" IsReadOnly="True" CanUserReorder="False" CanUserSort="False">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="TimeExited" Binding="{Binding Path= TimeExited}" x:Name="TimeExited" CanUserResize="False" IsReadOnly="True" CanUserReorder="False" CanUserSort="False">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Total hours" Binding="{Binding Path= TotalHours}" x:Name="TotalHours" CanUserResize="False" IsReadOnly="True" CanUserReorder="False" CanUserSort="False">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Status" x:Name="Status" Binding="{Binding Path= Status}" CanUserResize="False" IsReadOnly="True" CanUserReorder="False" CanUserSort="False" Width="80">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="StatisticGrid1" ItemsSource="{Binding UserData}" CanUserAddRows="False" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="309" Margin="0,10,0,0" VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Select a Name" Width="110">
+                    <DataGridTemplateColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTemplateColumn.HeaderStyle>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                                    Content="{Binding FullName}" Click="SelectWorker_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Worktime" HorizontalAlignment="Left" Height="25" Margin="183,18,0,0"
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="358" />
+    </Grid>
+</Window>

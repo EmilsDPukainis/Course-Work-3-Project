@@ -1,0 +1,31 @@
+﻿<Window x:Class="CourseWork3.RegistrationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseWork3"
+        mc:Ignorable="d"
+        Title="RegistrationWindow" Height="450" Width="687" WindowStartupLocation="CenterScreen">
+    <Grid Background="#F0F0F0">
+        <Label Content="Registration" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Foreground="#333333" />
+
+        <Label Content="Please enter the necessary information to complete registration" HorizontalAlignment="Center" Margin="0,80,0,0" VerticalAlignment="Top" FontSize="16" />
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,159,9,60" Height="200">
+            <StackPanel Orientation="Horizontal" Margin="0,0">
+                <TextBox Text="First name:" IsReadOnly="True" IsHitTestVisible="False" Width="200" Height="30" Margin="10" FontSize="16" Background="#F0F0F0" BorderBrush="{x:Null}" TextAlignment="Center" />
+                <TextBox Text="Last name:" IsReadOnly="True" IsHitTestVisible="False" Width="200" Height="30" Margin="10" FontSize="16" Background="#F0F0F0" BorderBrush="{x:Null}" TextAlignment="Center" />
+                <TextBox Text="Job:" IsReadOnly="True" IsHitTestVisible="False" Width="200" Height="30" Margin="10" Background="#F0F0F0" FontSize="16" BorderBrush="{x:Null}" TextAlignment="Center" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0">
+                <TextBox x:Name="FirstNameBox" Width="200" Height="28" Margin="10" FontSize="16" />
+                <TextBox x:Name="LastNameBox" Width="200" Height="28" Margin="10" FontSize="16" />
+                <ComboBox x:Name="JobBox" Width="200" Height="28" Margin="10" FontSize="16" SelectedIndex="-1">
+                    <ComboBoxItem IsEnabled="False" IsSelected="True" Content="Select a job"/>
+                </ComboBox>
+            </StackPanel>
+
+            <Button x:Name="Register" Content="Register" Width="120" Height="35" Margin="0,30" FontSize="16" HorizontalAlignment="Center" Click="Register_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

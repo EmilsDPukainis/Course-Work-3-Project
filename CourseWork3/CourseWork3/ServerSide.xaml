@@ -1,0 +1,153 @@
+﻿<Window x:Class="CourseWork3.ServerSide"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseWork3" xmlns:models="clr-namespace:CourseWork3.Models" d:DataContext="{d:DesignInstance Type=models:ServerSideView}"
+        mc:Ignorable="d"
+        Left="0" Top="0"
+        Title="ServerSide" Height="539.5" Width="1154.5" WindowStartupLocation="Manual">
+
+
+
+    <Grid HorizontalAlignment="Left" Width="1152">
+        <DataGrid x:Name="Users" ItemsSource="{Binding NewUserLogins}" CanUserAddRows="False" AutoGenerateColumns="False" Height="356" Margin="0,143,0,0" VerticalAlignment="Top" FontSize="14">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"  x:Name="Id" Binding="{Binding Path=Id}"  CanUserResize="False" IsReadOnly="True" CanUserReorder="False" CanUserSort="False" Width="25">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment"
+                 Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="First Name" x:Name="FirstName" Binding="{Binding Path=Name}" Width="200" CanUserResize="False" IsReadOnly="True" CanUserReorder="False" CanUserSort="False">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Last Name" x:Name="LastName" Binding="{Binding Path=Surname}" Width="200" CanUserResize="False" IsReadOnly="True" CanUserReorder="False" CanUserSort="False">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Job" x:Name="Job" Binding="{Binding Path=Job}" Width="200" CanUserResize="False" IsReadOnly="True" CanUserReorder="False" CanUserSort="False">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridCheckBoxColumn Header="Checked in" x:Name="CheckedIn"  Binding="{Binding Path=CheckedIn}" CanUserResize="False" CanUserReorder="False" CanUserSort="False">
+                    <DataGridCheckBoxColumn.ElementStyle>
+                        <Style TargetType="CheckBox">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="IsEnabled" Value="false"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=CheckedIn}" Value="1">
+                                    <Setter Property="IsChecked" Value="True"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=CheckedIn}" Value="0">
+                                    <Setter Property="IsChecked" Value="False"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridCheckBoxColumn.ElementStyle>
+                </DataGridCheckBoxColumn>
+                <DataGridCheckBoxColumn Header="Checked out" x:Name="CheckedOut" CanUserResize="False" CanUserReorder="False" CanUserSort="False">
+                    <DataGridCheckBoxColumn.ElementStyle>
+                        <Style TargetType="CheckBox">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="IsEnabled" Value="false"/>
+
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=CheckedIn}" Value="0">
+                                    <Setter Property="IsChecked" Value="True"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=CheckedIn}" Value="1">
+                                    <Setter Property="IsChecked" Value="False"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGridCheckBoxColumn.ElementStyle>
+                </DataGridCheckBoxColumn>
+
+                <DataGridTextColumn Header="Code" x:Name="Code" Binding="{Binding Path=Code}" Width="45" CanUserResize="False" IsReadOnly="True" CanUserReorder="False" CanUserSort="False">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Date entered(dd.mm.yyyy)" x:Name="Date" Binding="{Binding Path=Date}" Width="175" CanUserResize="False" IsReadOnly="True" CanUserReorder="False" CanUserSort="False">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Time entered(24h)" x:Name="Time" Binding="{Binding Path=Time}"  CanUserResize="False" IsReadOnly="True" CanUserReorder="False" CanUserSort="False">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="addJobBox" HorizontalAlignment="Left" Height="21" Margin="36,49,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="170"/>
+        <Button x:Name="addJob" Content="Add Job" HorizontalAlignment="Left" Height="22" Margin="74,75,0,0" VerticalAlignment="Top" Width="84" Click="addJob_Click"/>
+        <ComboBox x:Name="JobBox2" HorizontalAlignment="Center" Height="21" Margin="211,49,751,0" VerticalAlignment="Top" Width="170" SelectedIndex="-1">
+            <ComboBoxItem IsEnabled="False" IsSelected="True">Select a job</ComboBoxItem>
+        </ComboBox>
+        <Button Content="Reset Users" HorizontalAlignment="Left" Height="25" Margin="993,45,0,0" VerticalAlignment="Top" Width="90" Click="Reset_Click"/>
+               
+        <Button Content="Reset New Jobs" HorizontalAlignment="Left" Height="25" Margin="993,74,0,0" VerticalAlignment="Top" Width="90" Click="Reset_Jobs_Click"/>
+        
+        <Button x:Name="Statistics" Content="Statistics" HorizontalAlignment="Left" Height="27" Margin="585,46,0,0" VerticalAlignment="Top" Width="88" Click="Statistics_Click"/>
+    </Grid>
+</Window>

@@ -1,0 +1,17 @@
+﻿<Window x:Class="CourseWork3.ErrorMessage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseWork3"
+        mc:Ignorable="d"
+        Title="ErrorMessage" Height="245.05" Width="436.881" VerticalAlignment="Center" HorizontalAlignment="Center" WindowStartupLocation="CenterScreen">
+    <Grid Background="#F0F0F0">
+        <Label Content="oops" Margin="179,24,168,0" VerticalAlignment="Top" FontSize="28" FontWeight="Bold" Foreground="#333333" />
+
+        <TextBox IsReadOnly="True" IsHitTestVisible="False" x:Name="ErrorMessageTextBlock" Margin="68,76,59,0"  TextWrapping="Wrap" Text="Looks like something went wrong" VerticalAlignment="Top" FontSize="20" BorderBrush="{x:Null}" Background="#F0F0F0" TextAlignment="Center" />
+
+        <Button x:Name="Ok" Content="Ok" Height="35" Margin="155,148,154,0" VerticalAlignment="Top" FontSize="20" Click="Ok_Click" />
+
+    </Grid>
+</Window>
